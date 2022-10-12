@@ -12,7 +12,7 @@
 
 .pokemon-logo{
   width: 200px;
-  margin-top: 100px;
+  margin-top: 26px;
 }
 
 .pokemon-box{
@@ -23,12 +23,12 @@
 }
 
 .back{
-  width: 400px;
+  width: 340px;
 }
 
 .pokemon{
   position: absolute;
-  width: 90%;
+  width: 80%;
 }
 
 .loading{
@@ -56,12 +56,12 @@
 }
 
 .option-button{
-  width: 180px;
+  width: 140px;
   height: 70px;
   border: 5px solid white;
   background-color: #3860aa;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 800;
   transition: 500ms;
   text-transform: uppercase;
@@ -71,4 +71,24 @@
 .option-button:hover{
   transition: 500ms;
   background-color: #203762;
+}
+
+@media (min-width:700px) {
+  .pokemon-logo{
+    width: 200px;
+    margin-top: 100px;
+  } 
+
+  .pokemon{
+    width: 90%;
+  }
+
+  .back{
+    width: 400px;
+  }
+
+  .option-button{
+    width: 180px;
+    font-size: 20px;
+  }
 }

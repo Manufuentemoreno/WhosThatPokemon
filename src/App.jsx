@@ -19,15 +19,15 @@ const FX = {
 const TOTAL_POKEMON = 184;
 
 const randomChoice = (max)=>{
-  let number = Math.floor(Math.random()*max);
+  let number = Math.floor(Math.random()*(max+1));
   return number;
 }
 
 const getPokemons = async()=>{
-  const option1 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)}`);
-  const option2 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)}`);
-  const option3 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)}`);
-  const option4 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)}`);
+  const option1 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)+1}`);
+  const option2 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)+1}`);
+  const option3 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)+1}`);
+  const option4 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${randomChoice(TOTAL_POKEMON)+1}`);
 
   const pokemon1 = await option1.json();
   const pokemon2 = await option2.json();
@@ -44,10 +44,9 @@ const sleep = ms => new Promise(
 
 function App() {
   const [ pokemonImg, setPokemonImg] = useState();
-  const [ selectFx, setSelectFx ] = useState({});
   const [ allOptions, setAllOptions ] = useState([]);
   const [ playing, setPlaying ] = useState(true)
-  const [ loading, setLoading ] = useState(false)
+  const [ loading, setLoading ] = useState(true)
   const [ pokemonCover, setPokemonCover ] = useState(FX.secret);
 
   // Load Game
@@ -60,22 +59,23 @@ function App() {
       setAllOptions([
       {
         name: options[0].name,
-        fx: right == 0 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 0 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
       {
         name: options[1].name,
-        fx: right == 1 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 1 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
       {
         name: options[2].name,
-        fx: right == 2 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 2 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
       {
         name: options[3].name,
-        fx: right == 3 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 3 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
     ]);
       setPokemonImg(options[right].sprites.front_default);
+      setLoading(false)
     }
     )
 
@@ -83,9 +83,9 @@ function App() {
 
   // Play again
   useEffect(()=>{
-    if(playing){
-
-    const right = randomChoice(3);
+    if(playing){const right = randomChoice(3);
+    setPokemonImg("")
+    setAllOptions([]);
 
     getPokemons()
     .then(options => {
@@ -93,34 +93,34 @@ function App() {
       setAllOptions([
       {
         name: options[0].name,
-        fx: right == 0 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 0 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
       {
         name: options[1].name,
-        fx: right == 1 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 1 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
       {
         name: options[2].name,
-        fx: right == 2 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 2 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
       {
         name: options[3].name,
-        fx: right == 3 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "red"},
+        fx: right === 3 ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
       },
     ]);
+      setPokemonCover(FX.secret);
       setPokemonImg(options[right].sprites.front_default);
     }
-    )}
-
-    }, [playing])
+    )}}, [ playing ])
   
   // click button
-  const handeClick = async()=>{
+  const handeClick = async(event)=>{
+      event.target.style.border = "5px solid #fc0";
+      event.target.style.boxShadow = "0px 5px 22px -6px rgba(0,0,0,0.78)";
       setPokemonCover(FX.showPokemon);
       setPlaying(false);
 
       await sleep(3000);
-      setPokemonCover(FX.secret)
       setPlaying(true);
   };
   
@@ -128,8 +128,7 @@ function App() {
       <>
         <img className='pokemon-logo' src={logo} alt="Pokemon logo" />
         <Pokemon image={pokemonImg} fx={pokemonCover}/>
-        {/* { loading ? <Options pokemons={allOptions}/> : <img className='loading' src={pokeball} /> } */}
-        <Options pokemons={allOptions} playing={playing} action={handeClick}/>
+        { loading ? <img className='loading' alt='Loading' src={pokeball} /> :  <Options pokemons={allOptions} playing={playing} action={handeClick}/> }
       </>
     );
 }
