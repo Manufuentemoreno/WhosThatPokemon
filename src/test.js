@@ -2,4 +2,3 @@
 
 // la opcion correcta nunca es la opción n°1
 // sigue con posibilidad de repetir opciones y crashear
-// puede hacer un fetch del id 0 !!

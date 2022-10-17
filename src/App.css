@@ -15,6 +15,54 @@
   margin-top: 26px;
 }
 
+/* Landing Page */
+.landing{
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background: #00000024;
+  border-radius: 20px;
+  margin: 15px;
+  margin-top: 40px;
+}
+
+.chooseNumber{
+  text-align: center;
+  color: #fc0;
+  font-size: 25px;
+  line-height: 20px;
+  text-shadow: 2px 0 #3166b0, -2px 0 #3166b0, 0 2px #3166b0, 0 -2px #3166b0,
+             1px 1px #3166b0, -1px -1px #3166b0, 1px -1px #3166b0, -1px 1px #3166b0;
+}
+
+.button-choose{
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin: 5px;
+  text-align: start;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #10c18f;
+  transition: all 500ms;                    
+}
+
+.pokemon-button{
+  width: 30px;
+  height: 30px;
+  align-self: center;
+}
+
+.button-choose:hover{
+  background-color: #157cc7; 
+}
+
+
+
+/* End of Landing Page */
+
 .pokemon-box{
   position: relative;
   display: flex;
@@ -73,6 +121,7 @@
   background-color: #203762;
 }
 
+/* Media Tablet */
 @media (min-width:700px) {
   .pokemon-logo{
     width: 200px;
