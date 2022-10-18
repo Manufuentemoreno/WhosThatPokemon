@@ -11,14 +11,18 @@ function App() {
   const [ gameHasStarted, setGameHasStarted ] = useState(false);
   const [ pokemonNumber, setPokemonNumber ] = useState(0)
 
-  const configPokemonNumber = (event)=>{
-    setPokemonNumber(event.target.value); 
+  const configPokemonNumber = (event)=>{  
+    setPokemonNumber(event.currentTarget.value); 
     setGameHasStarted(true);
+  }
+
+  const reset = ()=>{
+    setGameHasStarted(false)
   }
   
   return (
       <React.Fragment>
-        <img className='pokemon-logo' src={logo} alt="Pokemon logo" />
+        <img className='pokemon-logo' src={logo} alt="Pokemon logo" onClick={reset} />
 
         { !gameHasStarted ? 
           <Landing select={configPokemonNumber} /> : 
