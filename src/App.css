@@ -13,6 +13,52 @@
 .pokemon-logo{
   width: 200px;
   margin-top: 26px;
+  z-index: 10;
+}
+
+.background{
+  position: fixed;
+  left: -1297px;
+  animation: background-fx ease-out 30s infinite;
+}
+
+.background-2{
+  position: fixed;
+  opacity: 0;
+  z-index: 5;
+  left: -1297px;
+  transform: rotate(180deg);
+  top: -200px;
+  animation: background-fx-2 ease-out 45s infinite;
+  animation-delay: 5s
+}
+
+@keyframes background-fx {
+  0%{
+    opacity: 0;
+    left: -1097px
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 0;
+    left: 210px
+  }
+}
+
+@keyframes background-fx-2 {
+  0%{
+    opacity: 0;
+    left: -2297px
+  }
+  50%{
+    opacity: 0.2;
+  }
+  100%{
+    opacity: 0;
+    left: 310px
+  }
 }
 
 /* Landing Page */
@@ -24,6 +70,7 @@
   border-radius: 20px;
   margin: 15px;
   margin-top: 40px;
+  z-index: 10;
 }
 
 .chooseNumber{
@@ -72,6 +119,10 @@
 
 
 /* End of Landing Page */
+
+.game{
+  z-index: 10;
+}
 
 .pokemon-box{
   position: relative;

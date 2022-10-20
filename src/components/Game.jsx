@@ -17,17 +17,12 @@ const FX = {
 const randomChoice = (max)=>{
     let number = Math.floor(Math.random()*(max));
     return number;
-}
-  
+};
+
 const shuffle = (array) =>{
-for (let i = array.length -1; i > 0; i--) {
-    let j = Math.floor(Math.random() * i)
-    let k = array[i]
-    array[i] = array[j]
-    array[j] = k
-};
-return array
-};
+  array.sort(function(a,b){return 0.5 - Math.random()});
+  return array;
+}
 
 const sleep = ms => new Promise(
 resolve => setTimeout(resolve, ms)
@@ -35,8 +30,7 @@ resolve => setTimeout(resolve, ms)
 
 const Game = (props)=>{
     const IDS_POKEMON = [1, props.PokemonNumber];
-    // const IDS_POKEMON = [1, 10];
-    
+   
     const pokemonsTotal = [];
     for( let i=IDS_POKEMON[0]; i<=IDS_POKEMON[1]; i++){
     pokemonsTotal.push(i);
@@ -83,7 +77,8 @@ const Game = (props)=>{
           let get4 = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${pokemonIdSelected4}`);
           let pokemonOp4 = await get4.json();
     
-          let pokemons = shuffle([PokemonCorrect, pokemonOp2, pokemonOp3, pokemonOp4]);
+          let pokemons = [PokemonCorrect, pokemonOp2, pokemonOp3, pokemonOp4];
+          pokemons = shuffle(pokemons);
     
           pokemons.push(PokemonCorrect);
           
@@ -174,12 +169,12 @@ const Game = (props)=>{
 
 
     return(
-        <React.Fragment>
+        <div className="game">
             <Pokemon image={pokemonImg} fx={pokemonCover}/>
             {loading ? 
             <img className='loading' alt='Loading' src={pokeball} /> :
             <Options pokemons={allOptions} playing={playing} action={handeClick}/> }
-        </React.Fragment>
+        </div>
     )
 };
 
