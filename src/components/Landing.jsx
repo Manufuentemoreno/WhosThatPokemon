@@ -13,19 +13,19 @@ const Landing = (props)=>{
         <section className="landing">
             <h1 className="chooseNumber">Choose how many pokemons do you want:</h1>
             <div className="options-landing">
-            <button className="button-choose" onClick={props.select} value={151}>Up to Generation I<img src={genOneImg} className="pokemon-button"/></button>
+            <button className="button-choose" onClick={props.select} value={151}>Up to Generation I<img src={genOneImg} className="pokemon-button" alt="Generation I"/></button>
 
-            <button className="button-choose" onClick={props.select} value={251}>Up to Generation II<img src={genTwoImg} className="pokemon-button"/></button>
+            <button className="button-choose" onClick={props.select} value={251}>Up to Generation II<img src={genTwoImg} className="pokemon-button" alt="Generation II"/></button>
 
-            <button className="button-choose" onClick={props.select} value={386}>Up to Generation III<img src={genThreeImg} className="pokemon-button"/></button>
+            <button className="button-choose" onClick={props.select} value={386}>Up to Generation III<img src={genThreeImg} className="pokemon-button" alt="Generation III"/></button>
 
-            <button className="button-choose" onClick={props.select} value={493}>Up to Generation IV<img src={genFourImg} className="pokemon-button"/></button>
+            <button className="button-choose" onClick={props.select} value={493}>Up to Generation IV<img src={genFourImg} className="pokemon-button" alt="Generation IV"/></button>
 
-            <button className="button-choose" onClick={props.select} value={649}>Up to Generation V<img src={genFiveImg} className="pokemon-button"/></button>
+            <button className="button-choose" onClick={props.select} value={649}>Up to Generation V<img src={genFiveImg} className="pokemon-button" alt="Generation V"/></button>
 
-            <button className="button-choose" onClick={props.select} value={721}>Up to Generation VI<img src={genSixImg} className="pokemon-button"/></button>
+            <button className="button-choose" onClick={props.select} value={721}>Up to Generation VI<img src={genSixImg} className="pokemon-button" alt="Generation VI"/></button>
 
-            <button className="button-choose" onClick={props.select} value={809}>Up to Generation VII<img src={genSevenImg} className="pokemon-button"/></button>
+            <button className="button-choose" onClick={props.select} value={809}>Up to Generation VII<img src={genSevenImg} className="pokemon-button" alt="Generation VII"/></button>
             </div>
         </section>
     )

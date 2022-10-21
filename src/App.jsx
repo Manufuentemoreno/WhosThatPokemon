@@ -1,8 +1,9 @@
 import './App.css';
 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Landing from "./components/Landing";
 import Game from './components/Game';
+import Footer from './components/Footer';
 
 import logo from "./assets/images/International_Pokémon_logo.svg.png";
 import backImage from "./assets/images/back-game.png";
@@ -31,6 +32,7 @@ function App() {
         }
         <img src={backImage} className="background" alt="background"/>
         <img src={backImage} className="background-2" alt="background-2"/>
+        <Footer/>
       </React.Fragment>
     );
 }
