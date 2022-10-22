@@ -90,39 +90,7 @@ const Game = (props)=>{
       }
     };
 
-
     // Load Game
-    // useEffect(()=>{
-    //   console.log("load")
-    //   // getPokemons(pokemonsTotal, pokemonsOptions)
-    //   // .then(options => {
-    //   //   setPokemonImg(options[4].sprites.front_default);
-    //   //   console.log(options[4].id)
-        
-    //   //   setAllOptions([
-    //   //   {
-    //   //     name: options[0].name,
-    //   //     fx: options[0].id === options[4].id ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
-    //   //   },
-    //   //   {
-    //   //     name: options[1].name,
-    //   //     fx: options[1].id === options[4].id ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
-    //   //   },
-    //   //   {
-    //   //     name: options[2].name,
-    //   //     fx: options[2].id === options[4].id ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
-    //   //   },
-    //   //   {
-    //   //     name: options[3].name,
-    //   //     fx: options[3].id === options[4].id ? {backgroundColor: "lightgreen", color: "green"} : {backgroundColor: "#a52d23"},
-    //   //   },
-    //   // ]);
-    //   //   setLoading(false)
-    //   // }
-    //   // )
-    //   }, [])
-  
-    // Play again
     useEffect(()=>{
 
       if(playing){
@@ -154,7 +122,7 @@ const Game = (props)=>{
           setLoading(false)
         }
         )}
-    }, [ playing ])
+    }, [ playing, correctOptions])
     
     // click button choice 
     const handeClick = async(event)=>{
@@ -171,7 +139,7 @@ const Game = (props)=>{
     return(
         <div className="game">
             <Pokemon image={pokemonImg} fx={pokemonCover}/>
-            {loading ? 
+            { loading ? 
             <img className='loading' alt='Loading' src={pokeball} /> :
             <Options pokemons={allOptions} playing={playing} action={handeClick}/> }
         </div>
