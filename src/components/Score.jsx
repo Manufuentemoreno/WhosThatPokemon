@@ -15,7 +15,7 @@ const Score = (props)=>{
                 <p className="score-number">{props.score[1]}</p>
             </div>
         </section>
-            <button className="end-game" onClick={props.action}>Finish Game</button>
+            <button className="end-game" onClick={props.action}>{props.text.finishGame}</button>
         </>
     )
 };

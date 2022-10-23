@@ -163,7 +163,7 @@ const Game = (props)=>{
             <img className='loading' alt='Loading' src={pokeball} /> :
             <Options pokemons={allOptions} playing={playing} action={handeClick}/> 
             }
-            <Score score={score} action={endGame}/>
+            <Score score={score} action={endGame} text={props.texts}/>
         </div>
     )
 };
