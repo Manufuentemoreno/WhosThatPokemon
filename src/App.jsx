@@ -24,6 +24,7 @@ function App() {
   
   return (
       <React.Fragment>
+        <main className='main-body'>
         <img className='pokemon-logo' src={logo} alt="Pokemon logo" onClick={reset} />
 
         { !gameHasStarted ? 
@@ -32,6 +33,7 @@ function App() {
         }
         <img src={backImage} className="background" alt="background"/>
         <img src={backImage} className="background-2" alt="background-2"/>
+        </main>
         <Footer/>
       </React.Fragment>
     );

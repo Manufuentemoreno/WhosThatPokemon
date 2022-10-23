@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #e83e2f;
-  min-height: 100vh;
+  min-height: 90vh;
   height: 100%;
 }
 
@@ -187,19 +187,76 @@
   background-color: #203762;
 }
 
+/* Footer */
+.footer{
+  background-color: black;
+  z-index: 10;
+  height: 50px;
+  position: relative;
+  min-height: 10vh;
+  margin-top: 0px;
+  padding-top: 10px;
+}
+
+.footer-text{
+  color: white;
+  font-size: 10px;
+  font-weight: lighter;
+  font-family: Roboto;
+  margin: 10px;
+}
+
 /* Media Tablet */
 @media (min-width:700px) {
+
   .pokemon-logo{
-    width: 200px;
+    width: 250px;
+  }
+
+  .landing{
+    margin: 136px;
+    margin-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  .chooseNumber{
+    font-size: 30px;
+    padding: 0px 35px;
+    line-height: 25px;
+  }
+
+  .button-choose{
+    height: 160px;
+    width: 140px;
+    justify-content: space-evenly;
+    font-size: 12px;
+    padding: 0px 15px;
+  }
+
+  .pokemon-logo{
+    width: 300px;
     margin-top: 100px;
   } 
 
   .pokemon{
-    width: 90%;
+    width: 50%;
   }
 
   .back{
     width: 400px;
+  }
+
+  .game{
+    margin-bottom: 60px;
+  }
+
+  .pokemon-box{
+    margin: 20px 0px;
+  }
+
+  .options{
+    max-width: 60%;
+    align-self: center;
   }
 
   .option-button{
@@ -208,19 +265,39 @@
   }
 }
 
-/* Footer */
-.footer{
-  background-color: black;
-  width: 100%;
-  z-index: 10;
-  bottom: 0;
-  height: 50px;
-}
+/* Media Laptop */
+@media (min-width: 992px) {
+  .main-body{
+    min-height: 90vh;
+  }
 
-.footer-text{
-  color: white;
-font-size: 10px;
-font-weight: lighter;
-font-family: Roboto;
-margin: 10px;
+  .pokemon-logo{
+    margin-top: 40px;
+    width: 250px;
+  }
+
+  .loading{
+    margin-left: 200px;
+  }
+
+  .game{
+    flex-direction: row;
+    justify-content: center;
+    min-width: 80%;
+    margin-top: 30px;
+  }
+
+  .pokemon{
+    width: 70%;
+  }
+  
+  .options{
+    width: 500px;
+  }
+
+  .options-landing{
+    align-self: center;
+    margin: 10px 50px; 
+  }
+  
 }
