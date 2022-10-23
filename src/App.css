@@ -125,6 +125,9 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
+  overflow: clip;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .pokemon-box{
@@ -141,6 +144,13 @@
 .pokemon{
   position: absolute;
   width: 80%;
+  animation: guessPokemon 1.5s ease-in-out infinite;
+}
+
+@keyframes guessPokemon {
+  0%{width: 80%;}
+  50%{width: 82%;}
+  100%{width: 80%;}
 }
 
 .loading{
@@ -180,11 +190,72 @@
   text-transform: uppercase;
   margin: 10px;
   border-radius: 10px;
+  line-height: 15px;
+  overflow-wrap: break-word;
 }
 
 .option-button:hover{
   transition: 500ms;
   background-color: #203762;
+}
+
+/* Score */
+
+.score-section{
+  display: flex;
+  align-self: center;
+  margin: 5px;
+}
+
+.score{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: 40px;
+  align-content: center;
+  margin: 5px;
+  width: 100px;
+  justify-content: center;
+}
+
+.score-pokeball{
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 10px;
+}
+
+.score-number{
+  align-self: center;
+  background-color: #381f1f;
+  border-radius: 5px;
+  width: 29px;
+  padding-left: 37px;
+  position: absolute;
+  color: white;
+  margin-left: 10px;
+}
+
+.score-win{
+  background-color: #ddd9fc;
+  color: black;
+}
+
+.end-game{
+  width: 150px;
+  align-self: center;
+  margin-top: 25px;
+  color: wheat;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 100ms;
+}
+
+.end-game:hover{
+  color: #fecb00;
 }
 
 /* Footer */
@@ -195,16 +266,28 @@
   position: relative;
   min-height: 10vh;
   margin-top: 0px;
-  padding-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer-text{
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: lighter;
   font-family: Roboto;
   margin: 10px;
 }
+
+.footer-title{
+  width: 90%;
+}
+
+.footer-data{
+  width: 50%;
+}
+
+
 
 /* Media Tablet */
 @media (min-width:700px) {
@@ -242,12 +325,19 @@
     width: 50%;
   }
 
+  @keyframes guessPokemon {
+    0%{width: 50%;}
+    50%{width: 52%;}
+    100%{width: 50%;}
+  }
+
   .back{
     width: 400px;
   }
 
   .game{
     margin-bottom: 60px;
+    flex-wrap: wrap;
   }
 
   .pokemon-box{
@@ -263,12 +353,20 @@
     width: 180px;
     font-size: 20px;
   }
+
+  .end-game{
+    margin-top: 40px;
+  }
 }
 
 /* Media Laptop */
 @media (min-width: 992px) {
   .main-body{
     min-height: 90vh;
+  }
+
+  .pokemon-button{
+    height: 85px;
   }
 
   .pokemon-logo{
@@ -283,12 +381,20 @@
   .game{
     flex-direction: row;
     justify-content: center;
-    min-width: 80%;
+    max-width: 920px;
     margin-top: 30px;
+    position: relative;
+    overflow:visible;
   }
 
   .pokemon{
     width: 70%;
+  }
+
+  @keyframes guessPokemon {
+    0%{width: 70%;}
+    50%{width: 72%;}
+    100%{width: 70%;}
   }
   
   .options{
@@ -298,6 +404,21 @@
   .options-landing{
     align-self: center;
     margin: 10px 50px; 
+  }
+
+  .end-game{
+    margin-top: 0px;
+    position: absolute;
+    top: 519px;
+  }
+
+  .footer{
+    height: auto;
+    padding-left: 20px;
+  }
+
+  .footer-text{
+    font-size: 15px;
   }
   
 }

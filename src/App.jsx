@@ -18,18 +18,18 @@ function App() {
     setGameHasStarted(true);
   }
 
-  const reset = ()=>{
+  const endGame = ()=>{
     setGameHasStarted(false)
   }
   
   return (
       <React.Fragment>
         <main className='main-body'>
-        <img className='pokemon-logo' src={logo} alt="Pokemon logo" onClick={reset} />
+        <img className='pokemon-logo' src={logo} alt="Pokemon logo" onClick={endGame} />
 
         { !gameHasStarted ? 
           <Landing select={configPokemonNumber} /> : 
-          <Game PokemonNumber={pokemonNumber}/>
+          <Game PokemonNumber={pokemonNumber} end={endGame}/>
         }
         <img src={backImage} className="background" alt="background"/>
         <img src={backImage} className="background-2" alt="background-2"/>

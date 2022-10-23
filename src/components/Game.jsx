@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Pokemon from './Pokemon';
 import Options from './Options';
+import Score from "./Score";
 
 import pokeball from "../assets/images/pokeball.png";
 
@@ -9,6 +10,7 @@ const FX = {
       filter: "saturate(0) contrast(0%) brightness(0%) grayscale(0) blur(0.8px)"
     },
     showPokemon : {
+      animation: "none",
       filter: "none",
       transition: "1s"
     }
@@ -44,7 +46,7 @@ const Game = (props)=>{
     const [ loading, setLoading ] = useState(true)
     const [ pokemonCover, setPokemonCover ] = useState(FX.secret);
     const [ correct, setCorrect ] = useState()
-    const [ score, setScore ] = useState(0);
+    const [ score, setScore ] = useState([0,0]);
   
 
     const getPokemons = async(correctList, optionsList)=>{
@@ -94,9 +96,7 @@ const Game = (props)=>{
 
     // Load Game
     useEffect(()=>{
-
-      console.log(score)
-
+      
       if(playing){
         getPokemons(correctOptions, pokemonsOptions)
           .then(options => {
@@ -137,11 +137,13 @@ const Game = (props)=>{
         setPlaying(false);
 
         if(event.target.innerHTML == correct){
-          setScore(score => score+1);
+          setScore(score=> [score[0]+1, score[1]]);
+        }else{
+          setScore(score=> [score[0], score[1]+1]);
         }
         
         
-        await sleep(2500);
+        await sleep(3000);
         event.target.style.boxShadow = "none";
         event.target.style.border = "";
         event.target.style.backgroundColor = "#a52d23";
@@ -149,13 +151,19 @@ const Game = (props)=>{
         setPlaying(true);
     };
 
+    const endGame = async(event)=>{
+      props.end();
+    }
+
 
     return(
         <div className="game">
             <Pokemon image={pokemonImg} fx={pokemonCover}/>
             { loading ? 
             <img className='loading' alt='Loading' src={pokeball} /> :
-            <Options pokemons={allOptions} playing={playing} action={handeClick}/> }
+            <Options pokemons={allOptions} playing={playing} action={handeClick}/> 
+            }
+            <Score score={score} action={endGame}/>
         </div>
     )
 };
