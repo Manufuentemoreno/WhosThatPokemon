@@ -131,14 +131,16 @@ const Game = (props)=>{
     
     // click button choice 
     const handeClick = async(event)=>{
-        event.target.style.border = "5px solid #fc0";
+
         event.target.style.boxShadow = "0px 5px 22px -6px rgba(0,0,0,0.78)";
         setPokemonCover(FX.showPokemon);
         setPlaying(false);
 
-        if(event.target.innerHTML == correct){
+        if(event.target.innerHTML === correct){
+          event.target.style.border = "5px solid #fc0";
           setScore(score=> [score[0]+1, score[1]]);
         }else{
+          event.target.style.border = "5px solid #581711";
           setScore(score=> [score[0], score[1]+1]);
         }
         

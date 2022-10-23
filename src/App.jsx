@@ -11,6 +11,7 @@ import backImage from "./assets/images/back-game.png";
 
 const texts = {
   english: {
+    languaje: "english",
     title: "Guess who´s that pokemon",
     choose: "Choose how many pokemons do you want:",
     gen: "Up to Generation ",
@@ -20,6 +21,7 @@ const texts = {
     footerApi: "Using the"
   },
   spanish: {
+    languaje: "español",
     title: "Adivina quién es ese Pokemon",
     choose: "Elige cuántos pokemons quieres:",
     gen: "Hasta la generación ",
@@ -55,7 +57,7 @@ function App() {
   
   return (
       <React.Fragment>
-        <Languaje english={changeEnglish} spanish={changeSpanish}/>
+        <Languaje english={changeEnglish} spanish={changeSpanish} languaje={languaje}/>
         <main className='main-body'>
         <img className='pokemon-logo' src={logo} alt="Pokemon logo" onClick={endGame} />
 
