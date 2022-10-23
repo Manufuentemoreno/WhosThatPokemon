@@ -43,6 +43,8 @@ const Game = (props)=>{
     const [ playing, setPlaying ] = useState(true)
     const [ loading, setLoading ] = useState(true)
     const [ pokemonCover, setPokemonCover ] = useState(FX.secret);
+    const [ correct, setCorrect ] = useState()
+    const [ score, setScore ] = useState(0);
   
 
     const getPokemons = async(correctList, optionsList)=>{
@@ -93,11 +95,14 @@ const Game = (props)=>{
     // Load Game
     useEffect(()=>{
 
+      console.log(score)
+
       if(playing){
         getPokemons(correctOptions, pokemonsOptions)
           .then(options => {
         
           setPokemonImg(options[4].sprites.front_default);
+          setCorrect(options[4].name)
 
         
           setAllOptions([
@@ -130,8 +135,17 @@ const Game = (props)=>{
         event.target.style.boxShadow = "0px 5px 22px -6px rgba(0,0,0,0.78)";
         setPokemonCover(FX.showPokemon);
         setPlaying(false);
+
+        if(event.target.innerHTML == correct){
+          setScore(score => score+1);
+        }
         
-        await sleep(3000);
+        
+        await sleep(2500);
+        event.target.style.boxShadow = "none";
+        event.target.style.border = "";
+        event.target.style.backgroundColor = "#a52d23";
+        event.target.style.color = "white";
         setPlaying(true);
     };
 
