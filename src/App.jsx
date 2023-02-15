@@ -2,8 +2,7 @@ import './App.css';
 
 import React, {useState} from 'react';
 import Languaje from './components/Languaje';
-import Landing from "./components/Landing";
-import Game from './components/Game';
+import SelectMode from './components/SelectMode';
 import Footer from './components/Footer';
 
 import logo from "./assets/images/International_Pokémon_logo.svg.png";
@@ -35,7 +34,8 @@ const texts = {
 function App() {
   const [ gameHasStarted, setGameHasStarted ] = useState(false);
   const [ pokemonNumber, setPokemonNumber ] = useState(0);
-  const [ languaje, setLanguaje ] = useState(texts.english)
+  const [ languaje, setLanguaje ] = useState(texts.english);
+  const [ gameMode, setGameMode ] = useState(0);
 
   const configPokemonNumber = (event)=>{  
     setPokemonNumber(event.currentTarget.value); 
@@ -61,10 +61,8 @@ function App() {
         <main className='main-body'>
         <img className='pokemon-logo' src={logo} alt="Pokemon logo" onClick={endGame} />
 
-        { !gameHasStarted ? 
-          <Landing select={configPokemonNumber} texts={languaje}/> : 
-          <Game PokemonNumber={pokemonNumber} end={endGame} texts={languaje}/>
-        }
+        <SelectMode/>
+
         <img src={backImage} className="background" alt="background"/>
         <img src={backImage} className="background-2" alt="background-2"/>
         </main>

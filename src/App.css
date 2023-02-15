@@ -6,6 +6,12 @@ body{
   position: relative;
 }
 
+.select-mode{
+  z-index: 500;
+  display: flex;
+  margin-top: 40px;
+}
+
 .languaje{
   position: absolute;
   display: flex;

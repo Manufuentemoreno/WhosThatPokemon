@@ -15,7 +15,7 @@ const Footer = (props)=>{
                 <a target="_blank" rel="noreferrer" href="mailto:manufuentemoreno@gmail.com"><FaEnvelope/><p className="footer-text">  manufuentemoreno@gmail.com</p></a>
                 <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/manuel-fuente-moreno/"><FaLinkedin/><p className="footer-text">  LinkedIn</p></a>
                 <a target="_blank" rel="noreferrer" href="https://github.com/Manufuentemoreno"><FaGithub/><p className="footer-text">  GitHub</p></a>
-                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/manuel-fuente-moreno/"><FaFolder/><p className="footer-text">  Portfolio</p></a>
+                <a target="_blank" rel="noreferrer" href="https://manufuentemorenodev.web.app"><FaFolder/><p className="footer-text">  Portfolio</p></a>
             </section>
         </footer>
     )
