@@ -62,6 +62,7 @@ body{
   position: fixed;
   left: -1297px;
   animation: background-fx ease-out 30s infinite;
+  transform: translate3d(0, 0, 0)
 }
 
 .background-2{

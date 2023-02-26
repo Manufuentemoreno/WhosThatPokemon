@@ -1,12 +1,18 @@
 import './App.css';
 
 import React, {useState} from 'react';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import Languaje from './components/Languaje';
 import SelectMode from './components/SelectMode';
 import Footer from './components/Footer';
 
+
 import logo from "./assets/images/International_Pokémon_logo.svg.png";
 import backImage from "./assets/images/back-game.png";
+import Landing from './components/Landing';
 
 const texts = {
   english: {
@@ -54,17 +60,30 @@ function App() {
     setLanguaje(texts.spanish)
   }
 
-  
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <SelectMode/>,
+      // errorElement: <ErrorPage/>,
+    },
+    {
+      path: "/marathon",
+      element: <Landing texts={texts}/>
+    }
+  ]);
+
   return (
       <React.Fragment>
         <Languaje english={changeEnglish} spanish={changeSpanish} languaje={languaje}/>
         <main className='main-body'>
         <img className='pokemon-logo' src={logo} alt="Pokemon logo" onClick={endGame} />
 
-        <SelectMode/>
+        {/* <SelectMode/> */}
+        <RouterProvider router={router} />
 
-        <img src={backImage} className="background" alt="background"/>
-        <img src={backImage} className="background-2" alt="background-2"/>
+
+        {/* <img src={backImage} className="background" alt="background"/>
+        <img src={backImage} className="background-2" alt="background-2"/> */}
         </main>
         <Footer texts={languaje}/>
       </React.Fragment>
