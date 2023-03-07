@@ -1,38 +1,479 @@
-.App {
-  text-align: center;
+*{
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.languaje{
+  position: absolute;
   display: flex;
+  z-index: 100;
+  margin-left: 28px;
+  margin-bottom: 10px;
   flex-direction: column;
+  bottom: 0;
+}
+
+.languaje button{
+  display: flex;
+  border: none;
+  background: none;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 30px;
+  margin-right: 10px;
+}
+
+.languaje button img{
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.languaje button p{
+  font-weight: 500;
+  font-family: roboto;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.main-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e83e2f;
+  min-height: 90vh;
+  height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.pokemon-logo{
+  width: 200px;
+  margin-top: 26px;
+  z-index: 10;
+}
+
+.background{
+  position: fixed;
+  left: -1297px;
+  animation: background-fx ease-out 30s infinite;
+}
+
+.background-2{
+  position: fixed;
+  opacity: 0;
+  z-index: 5;
+  left: -1297px;
+  transform: rotate(180deg);
+  top: -200px;
+  animation: background-fx-2 ease-out 45s infinite;
+  animation-delay: 28s
+}
+
+@keyframes background-fx {
+  0%{
+    opacity: 0;
+    left: -1097px
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+    opacity: 0.5;
   }
+  100%{
+    opacity: 0;
+    left: 210px
+  }
+}
+
+@keyframes background-fx-2 {
+  0%{
+    opacity: 0;
+    left: -2297px
+  }
+  50%{
+    opacity: 0.2;
+  }
+  100%{
+    opacity: 0;
+    left: 310px
+  }
+}
+
+/* Landing Page */
+.landing{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background: #00000024;
+  border-radius: 20px;
+  margin: 15px;
+  margin-top: 10px;
+  z-index: 10;
+}
+
+.chooseNumber{
+  z-index: 10;
+  text-align: center;
+  color: #fc0;
+  font-size: 25px;
+  line-height: 20px;
+  text-shadow: 2px 0 #3166b0, -2px 0 #3166b0, 0 2px #3166b0, 0 -2px #3166b0,
+             1px 1px #3166b0, -1px -1px #3166b0, 1px -1px #3166b0, -1px 1px #3166b0;
+}
+
+.options-landing{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-choose{
+  display: flex;
+  justify-content: center;
+  height: 120px;
+  margin: 5px;
+  text-align: center;
+  padding: 0px 12px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #10c18f;
+  transition: background-color 500ms;
+  flex-direction: column-reverse;
+  width: 100px;
+  font-size: 10px;                   
+}
+
+.pokemon-button{
+  height: 67px;
+  align-self: center;
+}
+
+.button-choose:hover{
+  background-color: #157cc7; 
+  border: solid 2px white;
+}
+
+
+
+/* End of Landing Page */
+
+.game{
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.pokemon-box{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back{
+  width: 340px;
+}
+
+.pokemon{
+  position: absolute;
+  width: 80%;
+  max-width: 370px;
+  animation: guessPokemon 1.5s ease-in-out infinite;
+}
+
+@keyframes guessPokemon {
+  0%{width: 80%;}
+  50%{width: 82%;}
+  100%{width: 80%;}
+}
+
+.loading{
+  width: 120px;
+  align-self: center;
+  animation: loadingAnimation 3s  infinite;
+}
+
+@keyframes loadingAnimation {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.options{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 450px;
+  margin: auto;
+  justify-content: center;
+}
+
+.option-button{
+  width: 140px;
+  height: 70px;
+  border: 5px solid white;
+  background-color: #3860aa;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  transition: 500ms;
+  text-transform: uppercase;
+  margin: 10px;
+  border-radius: 10px;
+  line-height: 15px;
+  overflow-wrap: break-word;
+}
+
+.option-button:hover{
+  transition: 500ms;
+  background-color: #203762;
+}
+
+/* Score */
+
+.score-section{
+  display: flex;
+  align-self: center;
+  margin: 5px;
+}
+
+.score{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: 40px;
+  align-content: center;
+  margin: 5px;
+  width: 100px;
+  justify-content: center;
+}
+
+.score-pokeball{
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 10px;
+}
+
+.score-number{
+  align-self: center;
+  background-color: #381f1f;
+  border-radius: 5px;
+  width: 29px;
+  padding-left: 37px;
+  position: absolute;
+  color: white;
+  margin-left: 10px;
+}
+
+.score-win{
+  background-color: #ddd9fc;
+  color: black;
+}
+
+.end-game{
+  width: 150px;
+  align-self: center;
+  margin-top: 25px;
+  color: wheat;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 100ms;
+}
+
+.end-game:hover{
+  color: #fecb00;
+}
+
+/* Footer */
+.footer{
+  background-color: black;
+  z-index: 10;
+  min-height: 50px;
+  position: relative;
+  min-height: 10vh;
+  margin-top: 0px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-text{
+  color: white;
+  font-size: 12px;
+  font-weight: lighter;
+  font-family: Roboto;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-text a img{
+  margin-left: 3px;
+  max-width: 42px;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+.footer-title{
+  width: 90%;
+}
+
+.footer-data{
+  width: 50%;
+}
+
+.footer-data a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* Media Tablet */
+@media (min-width:700px) {
+
+  .pokemon-logo{
+    width: 250px;
+  }
+
+  .landing{
+    margin: 136px;
+    margin-top: 50px;
+    padding-bottom: 30px;
+  }
+
+  .chooseNumber{
+    font-size: 30px;
+    padding: 0px 35px;
+    line-height: 25px;
+  }
+
+  .button-choose{
+    height: 160px;
+    width: 140px;
+    justify-content: space-evenly;
+    font-size: 12px;
+    padding: 0px 15px;
+  }
+
+  .pokemon-logo{
+    width: 300px;
+    margin-top: 100px;
+  } 
+
+  .pokemon{
+    width: 50%;
+  }
+
+  @keyframes guessPokemon {
+    0%{width: 50%;}
+    50%{width: 52%;}
+    100%{width: 50%;}
+  }
+
+  .back{
+    width: 400px;
+  }
+
+  .game{
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .pokemon-box{
+    margin: 20px 0px;
+  }
+
+  .options{
+    max-width: 60%;
+    align-self: center;
+  }
+
+  .option-button{
+    width: 180px;
+    font-size: 20px;
+  }
+
+  .end-game{
+    margin-top: 40px;
+  }
+}
+
+/* Media Laptop */
+@media (min-width: 992px) {
+  .main-body{
+    min-height: 90vh;
+  }
+
+  .pokemon-button{
+    height: 85px;
+  }
+
+  .pokemon-logo{
+    margin-top: 40px;
+    width: 250px;
+  }
+
+  .loading{
+    margin-left: 200px;
+  }
+
+  .game{
+    flex-direction: row;
+    justify-content: center;
+    max-width: 920px;
+    margin-top: 30px;
+    position: relative;
+    overflow:visible;
+  }
+
+  .pokemon{
+    width: 70%;
+  }
+
+  @keyframes guessPokemon {
+    0%{width: 70%;}
+    50%{width: 72%;}
+    100%{width: 70%;}
+  }
+  
+  .options{
+    width: 500px;
+  }
+
+  .options-landing{
+    align-self: center;
+    margin: 10px 50px; 
+  }
+
+  .end-game{
+    margin-top: 0px;
+    position: absolute;
+    top: 519px;
+  }
+
+  .footer{
+    height: auto;
+    padding-left: 20px;
+  }
+
+  .footer-text{
+    font-size: 15px;
+  }
+  
 }
