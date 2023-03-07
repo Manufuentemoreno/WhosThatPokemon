@@ -7,7 +7,6 @@ import Options from './Options';
 import Score from "./Score";
 
 import pokeball from "../../assets/images/pokeball.png";
-import { Navigate } from "react-router-dom";
 
 const FX = {
     secret : {
@@ -36,10 +35,11 @@ resolve => setTimeout(resolve, ms)
 
 const Game = (props)=>{
     const IDS_POKEMON = [1, props.PokemonNumber];
+
    
     const pokemonsTotal = [];
     for( let i=IDS_POKEMON[0]; i<=IDS_POKEMON[1]; i++){
-    pokemonsTotal.push(i);
+      pokemonsTotal.push(i);
     };
     const pokemonsOptions = [...pokemonsTotal];
 
@@ -159,17 +159,27 @@ const Game = (props)=>{
 
     const endGame = async(event)=>{
         alert("juego terminado")
-    }
+    };
 
+    if(props.gameMode === 1 && (props.PokemonNumber - correctOptions.length) > 5){
+      return(
+        <>
+          <h1>PARTIDA TERMINADA</h1>
+          <p>Adivinaste {score[0]} pokemons</p>
+          <p>No conocías a {score[1]} pokemons</p>
+          <p>Efectividad: { score[0] / 0.05 }%</p>
+        </>
+      )
+    }
 
     return(
         <div className="game">
-            <Pokemon image={pokemonImg} fx={pokemonCover}/>
+          <Pokemon image={pokemonImg} fx={pokemonCover}/>
             { loading ? 
             <img className='loading' alt='Loading' src={pokeball} /> :
             <Options pokemons={allOptions} playing={playing} action={handeClick}/> 
             }
-            <Score score={score} action={endGame} text={"finalizar"}/>
+          <Score score={score} action={endGame} text={"finalizar"}/>
         </div>
     )
 };

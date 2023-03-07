@@ -4,8 +4,8 @@ const Landing = ({play}) =>{
 
     return(
         <>  
-            <p>Bienvenido al Juego de Pokemon!</p>
-            <button type="button" onClick={play}>Jugar</button>
+            <h2 className="chooseNumber button-landing">Adivina quién es ese Pokemon!</h2>
+            <button type="button" className="option-button" onClick={play}>Jugar</button>
         </>
     )
 };

@@ -11,7 +11,6 @@ import genSevenImg from "../assets/images/torracat-gen-seven.png";
 const SelectGen = ({select, texts})=>{
     return(
         <>
-        <h2 className="chooseNumber">{texts.title}</h2>
         <section className="landing">
             <h1 className="chooseNumber">{texts.choose}</h1>
             <div className="options-landing">

@@ -6,13 +6,13 @@ const SelectGame = ({exit}) =>{
     return(
         <>  
             <Link to={"/marathon"}>
-                <button type="button">Maraton</button>
+                <button type="button" className="option-button">Maraton</button>
             </Link>
             <Link to={"/challenge"}>
-                <button type="button">Desafío</button>
+                <button type="button" className="option-button">Desafío</button>
             </Link>
             <Link to={"/"}>
-                <button type="button" onClick={exit}>Salir</button>
+                <button type="button" className="option-button" onClick={exit}>Salir</button>
             </Link>
         </>
     )

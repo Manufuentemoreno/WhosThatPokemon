@@ -2,7 +2,6 @@ import React, {
   useState
 } from 'react';
 import {
-  Link,
   Route,
   Routes
 } from "react-router-dom";
@@ -46,8 +45,8 @@ function App(props) {
         <Route path="/" element={ <Home exit={exit}/> }>
           <Route index element={ !playGame ? <Landing play={play}/> : <SelectGame exit={exit}/> } />
 
-          <Route path='marathon'element={<Game gameMode={1} PokemonNumber={4}/>}/>
-          <Route path='challenge'element={<PreGame gameMode={2}/>}/>
+          <Route path='challenge' element={<Game gameMode={1} PokemonNumber={809}/>}/>
+          <Route path='marathon' element={<PreGame gameMode={2}/>}/>
         </Route>
         
         <Route path='/error' element={<ErrorPage/>}/>

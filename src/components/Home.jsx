@@ -7,7 +7,7 @@ const Home = ({exit})=>{
 
     return(
         <main className='main-body'>
-            <Link to={"/"}>
+            <Link to={"/"} className="top-link">
                 <img className='pokemon-logo' onClick={exit} src={logo} alt="Pokemon logo" />
             </Link>
             <Outlet/>
