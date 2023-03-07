@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SelectGame = ({exit}) =>{
 
     return(
-        <>  
+        <div className="landing-box">  
             <Link to={"/marathon"}>
                 <button type="button" className="option-button">Maraton</button>
             </Link>
@@ -14,7 +14,7 @@ const SelectGame = ({exit}) =>{
             <Link to={"/"}>
                 <button type="button" className="option-button" onClick={exit}>Salir</button>
             </Link>
-        </>
+        </div>
     )
 };
 

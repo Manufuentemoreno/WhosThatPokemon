@@ -44,13 +44,10 @@ function App(props) {
       <Routes>
         <Route path="/" element={ <Home exit={exit}/> }>
           <Route index element={ !playGame ? <Landing play={play}/> : <SelectGame exit={exit}/> } />
-
           <Route path='challenge' element={<Game gameMode={1} PokemonNumber={809}/>}/>
           <Route path='marathon' element={<PreGame gameMode={2}/>}/>
+          <Route path='*' element={<ErrorPage/>}/>
         </Route>
-        
-        <Route path='/error' element={<ErrorPage/>}/>
-        <Route path='*' element={<ErrorPage/>}/>
       </Routes>
 
       <Footer languaje={languaje}/>

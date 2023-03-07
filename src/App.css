@@ -44,14 +44,26 @@ body{
   justify-content: center;
   background-color: #e83e2f;
   min-height: 80vh;
-  height: 100%;
+  position: relative;
 }
-
 
 .pokemon-logo{
   width: 200px;
   margin-top: 26px;
   z-index: 10;
+}
+
+.top-link{
+  position: absolute;
+  top: 5px;
+}
+
+.landing-box{
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;
 }
 
 .button-landing{
@@ -112,8 +124,7 @@ body{
   padding: 5px;
   background: #00000024;
   border-radius: 20px;
-  margin: 15px;
-  margin-top: 10px;
+  margin: 130px 15px 20px;
   z-index: 10;
 }
 
@@ -171,7 +182,8 @@ body{
   flex-direction: column;
   overflow: clip;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: 100px;
 }
 
 .pokemon-box{
@@ -299,6 +311,8 @@ body{
   border-radius: 5px;
   padding: 5px;
   transition: all 100ms;
+  text-align: center;
+  text-decoration: none;
 }
 
 .end-game:hover{
@@ -350,19 +364,48 @@ body{
   align-items: center;
 }
 
+/* Error page */
+.error-box{
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  background: #00000028;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  text-decoration: none;
+}
 
+.error-box:hover{
+  background: #00000063;
+}
+
+.error-image{
+  width: 288px;
+  border-radius: 5px;
+}
+
+.error-text{
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
 
 /* Media Tablet */
 @media (min-width:700px) {
+
+  .main-body{
+    min-height: 90vh;
+  }
 
   .pokemon-logo{
     width: 250px;
   }
 
   .landing{
-    margin: 136px;
-    margin-top: 50px;
-    padding-bottom: 30px;
+    margin: 100px;
+    margin-top: 230px;
+    padding-bottom: 25px;
   }
 
   .chooseNumber{
@@ -381,7 +424,7 @@ body{
 
   .pokemon-logo{
     width: 300px;
-    margin-top: 100px;
+    margin-top: 40px;
   } 
 
   .pokemon{
@@ -401,6 +444,7 @@ body{
   .game{
     margin-bottom: 60px;
     flex-wrap: wrap;
+    margin-top: 200px;
   }
 
   .pokemon-box{
@@ -414,7 +458,7 @@ body{
 
   .option-button{
     width: 180px;
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .end-game{
@@ -445,9 +489,10 @@ body{
     flex-direction: row;
     justify-content: center;
     max-width: 920px;
-    margin-top: 30px;
+    margin-top: 115px;
     position: relative;
-    overflow:visible;
+    overflow: visible;
+    margin-bottom: 80px;
   }
 
   .pokemon{
