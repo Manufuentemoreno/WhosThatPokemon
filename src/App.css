@@ -2,6 +2,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
+a{
+  cursor: pointer;
+}
+
+button{
+  cursor: pointer;
+}
+
 body{
   position: relative;
 }
@@ -135,9 +143,26 @@ body{
   font-size: 25px;
   line-height: 20px;
   text-shadow: 2px 0 #3166b0, -2px 0 #3166b0, 0 2px #3166b0, 0 -2px #3166b0,
-             1px 1px #3166b0, -1px -1px #3166b0, 1px -1px #3166b0, -1px 1px #3166b0;
+  1px 1px #3166b0, -1px -1px #3166b0, 1px -1px #3166b0, -1px 1px #3166b0;
 }
 
+.landing-title{
+  margin: 160px 40px 30px;
+  line-height: 25px;
+}
+
+.landing-text{
+  line-height: 25px;
+  font-size: 15px;
+  margin: 20px 10% 0px;
+  padding: 20px 20px;
+  background-color: #0000004a;
+  border-radius: 15px;
+  font-weight: 600;
+  font-family: roboto;
+  text-shadow: none;
+  color: #fff1bb;
+}
 .options-landing{
   display: flex;
   align-items: center;
@@ -319,6 +344,18 @@ body{
   color: #fecb00;
 }
 
+.score-data{
+  background-color: #0000004a;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 10% 40px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
 /* Footer */
 .footer{
   background-color: black;
@@ -391,6 +428,14 @@ body{
   font-size: 20px;
 }
 
+.button-red{
+  background-color: #9a291f;
+}
+
+.button-red:hover{
+  background-color: #581812;
+}
+
 /* Media Tablet */
 @media (min-width:700px) {
 
@@ -407,11 +452,18 @@ body{
     margin-top: 230px;
     padding-bottom: 25px;
   }
-
+  
   .chooseNumber{
     font-size: 30px;
     padding: 0px 35px;
     line-height: 25px;
+  }
+  
+  .landing-text{
+    font-size: 15px;
+    padding: 30px;
+    margin: 30px 15% 0px;
+    max-width: 600px;
   }
 
   .button-choose{
@@ -512,6 +564,10 @@ body{
   .options-landing{
     align-self: center;
     margin: 10px 50px; 
+  }
+
+  .landing-title{
+    margin-top: 60px;
   }
 
   .end-game{

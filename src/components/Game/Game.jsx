@@ -6,6 +6,8 @@ import Pokemon from './Pokemon';
 import Options from './Options';
 import Score from "./Score";
 
+import ScorePage from "./ScorePage";
+
 import pokeball from "../../assets/images/pokeball.png";
 
 const FX = {
@@ -51,7 +53,7 @@ const Game = (props)=>{
     const [ pokemonCover, setPokemonCover ] = useState(FX.secret);
     const [ correct, setCorrect ] = useState()
     const [ score, setScore ] = useState([0,0]);
-  
+    const [ game, setGame ] = useState(true);
 
     const getPokemons = async(correctList, optionsList)=>{
     
@@ -158,17 +160,12 @@ const Game = (props)=>{
     };
 
     const endGame = async(event)=>{
-        alert("juego terminado")
+      setGame(false);
     };
 
-    if(props.gameMode === 1 && (props.PokemonNumber - correctOptions.length) > 5){
+    if( game === false || (props.gameMode === 1 && (props.PokemonNumber - correctOptions.length) > 1)){
       return(
-        <>
-          <h1>PARTIDA TERMINADA</h1>
-          <p>Adivinaste {score[0]} pokemons</p>
-          <p>No conocías a {score[1]} pokemons</p>
-          <p>Efectividad: { score[0] / 0.05 }%</p>
-        </>
+        <ScorePage win={score[0]} lose={score[1]} gameMode={props.gameMode}/>
       )
     }
 

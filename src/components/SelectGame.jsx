@@ -12,7 +12,7 @@ const SelectGame = ({exit}) =>{
                 <button type="button" className="option-button">Desafío</button>
             </Link>
             <Link to={"/"}>
-                <button type="button" className="option-button" onClick={exit}>Salir</button>
+                <button type="button" className="option-button button-red" onClick={exit}>Salir</button>
             </Link>
         </div>
     )
